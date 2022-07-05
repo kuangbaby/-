@@ -1,0 +1,46 @@
+2022-06-22 15:30:57.478  INFO 12032 --- [restartedMain] com.hjt.blog.BlogApplication             : Starting BlogApplication on LAPTOP-57D62H73 with PID 12032 (C:\Users\86132\Desktop\学习课程资料\个人博客\teesst\target\classes started by 86132 in C:\Users\86132\Desktop\学习课程资料\个人博客\teesst)
+2022-06-22 15:30:57.478  INFO 12032 --- [restartedMain] com.hjt.blog.BlogApplication             : The following profiles are active: dev
+2022-06-22 15:30:57.525  INFO 12032 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-06-22 15:30:57.525  INFO 12032 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-06-22 15:30:58.416  INFO 12032 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2022-06-22 15:30:58.541  INFO 12032 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 125ms. Found 5 JPA repository interfaces.
+2022-06-22 15:30:59.337  INFO 12032 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-06-22 15:30:59.337  INFO 12032 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-06-22 15:30:59.337  INFO 12032 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2022-06-22 15:30:59.337  INFO 12032 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.32] using APR version [1.7.0].
+2022-06-22 15:30:59.337  INFO 12032 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-06-22 15:30:59.337  INFO 12032 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-06-22 15:30:59.369  INFO 12032 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1n  15 Mar 2022]
+2022-06-22 15:30:59.525  INFO 12032 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-06-22 15:30:59.525  INFO 12032 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2000 ms
+2022-06-22 15:30:59.681  INFO 12032 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-06-22 15:30:59.744  INFO 12032 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-22 15:30:59.806  INFO 12032 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2022-06-22 15:30:59.884  WARN 12032 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-06-22 15:30:59.978  INFO 12032 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2022-06-22 15:31:00.087  INFO 12032 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-06-22 15:31:00.165  INFO 12032 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-06-22 15:31:00.197  INFO 12032 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-06-22 15:31:00.228  INFO 12032 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-06-22 15:31:00.837  INFO 12032 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-06-22 15:31:00.884  INFO 12032 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-06-22 15:31:00.884  INFO 12032 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2022-06-22 15:31:01.118  INFO 12032 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-22 15:31:01.118  INFO 12032 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-22 15:31:01.759  INFO 12032 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2022-06-22 15:31:01.759  INFO 12032 --- [restartedMain] com.hjt.blog.BlogApplication             : Started BlogApplication in 4.852 seconds (JVM running for 6.154)
+2022-06-22 15:31:12.145  INFO 12032 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-22 15:31:12.145  INFO 12032 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-06-22 15:31:12.156  INFO 12032 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2022-06-22 15:31:12.190  INFO 12032 --- [http-nio-8080-exec-1] com.hjt.blog.aspect.LogAspect            : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.hjt.blog.web.indexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2022-06-22 15:31:12.280  WARN 12032 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2022-06-22 15:31:12.292  WARN 12032 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2022-06-22 15:31:12.297  INFO 12032 --- [http-nio-8080-exec-1] com.hjt.blog.aspect.LogAspect            : Result : index
+2022-06-22 15:31:13.134  INFO 12032 --- [http-nio-8080-exec-5] com.hjt.blog.aspect.LogAspect            : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.hjt.blog.web.indexController.newblogs', args=[{}]}
+2022-06-22 15:31:13.138  INFO 12032 --- [http-nio-8080-exec-5] com.hjt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2022-06-22 15:32:22.362  INFO 12032 --- [http-nio-8080-exec-2] com.hjt.blog.aspect.LogAspect            : Request : {url='http://localhost:8080/tags/2', ip='0:0:0:0:0:0:0:1', classMethod='com.hjt.blog.web.TagShowController.tags', args=[Page request [number: 0, size 8, sort: updateTime: DESC], 2, {}]}
+2022-06-22 15:32:22.393  INFO 12032 --- [http-nio-8080-exec-2] com.hjt.blog.aspect.LogAspect            : Result : tags
+2022-06-22 15:32:22.516  INFO 12032 --- [http-nio-8080-exec-2] com.hjt.blog.aspect.LogAspect            : Request : {url='http://localhost:8080/tags/1', ip='0:0:0:0:0:0:0:1', classMethod='com.hjt.blog.web.TagShowController.tags', args=[Page request [number: 0, size 8, sort: updateTime: DESC], 1, {}]}
+2022-06-22 15:32:22.533  INFO 12032 --- [http-nio-8080-exec-2] com.hjt.blog.aspect.LogAspect            : Result : tags
+2022-06-22 15:32:22.846  INFO 12032 --- [http-nio-8080-exec-8] com.hjt.blog.aspect.LogAspect            : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.hjt.blog.web.indexController.newblogs', args=[{}]}
+2022-06-22 15:32:22.850  INFO 12032 --- [http-nio-8080-exec-8] com.hjt.blog.aspect.LogAspect            : Result : _fragments :: newblogList

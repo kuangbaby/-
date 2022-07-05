@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="admin/_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <!--移动端预览-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分类新增</title>
+    <!--通过CDN引入Semantic-UI-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <!--引入md插件CSS,Editor.md 是一款开源在线 Markdown 编辑器-->
+    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css">
+    <link rel="stylesheet" href="../../static/css/me.css">
+</head>
+<body>
+    <!--导航-->
+    <!--inverted:反色、attached:没有圆角，依附在上面:m-padded-tb-mini:m自己定义,padded,上下之间内部间隔,tb上下,mini小点-->
+    <!--m-shadow-small:自定义导航阴影-->
+    <nav th:replace="admin/_fragments :: menu(2)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+        <!--ui提供的container:提供的宽度固定-->
+        <div class="ui container">
+            <!--stackable:可堆叠,屏幕小的时候会堆叠到一块,用于适应移动端网页适配、menu-item-->
+            <div class="ui inverted secondary stackable menu">
+                <!--teal颜色header-->
+                <h2 class="ui teal header item">管理后台</h2>
+                <!--home icon:图标、m-mobile-hide:自定义按钮隐藏、active:当前活跃-->
+                <a herf="#" class="active m-item item m-mobile-hide"><i class="mini home icon"></i>博客</a>
+                <a herf="#" class="m-item item m-mobile-hide"><i class="mini idea icon"></i>分类</a>
+                <a herf="#" class="m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
+                <!--right:靠右-->
+                <div class="right m-item m-mobile-hide menu">
+                    <!--ui dropdown:UI下的一个样式-->
+                    <div class="ui dropdown item">
+                        <div class="text">
+                            <img class="ui avatar image" src="https://picsum.photos/id/1027/100/100" >
+                            郝浩渊
+                        </div>
+                        <!--dropdown icon:下拉的图标-->
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a href="#" class="item">注销</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--m-right-top:自定义绝对位置布局、m-mobile-show:自定义按钮显示、menu toggle:没有任何显示上的意义,只是为了用jQuery获取这个元素(在最底部script)-->
+        <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+    <!--二级导航-->
+    <!--pointing:有一个小的角-->
+    <div class="ui attached pointing menu">
+        <div class="ui container">
+            <!--放到右边-->
+            <div class="right menu">
+                <a href="#" th:href="@{/admin/types/input}" class="teal active item">发布</a>
+                <a href="#" th:href="@{/admin/types}" class="item">列表</a>
+            </div>
+        </div>
+    </div>
+    <!--中间内容-->
+    <div  class="m-container-small m-padded-tb-big">
+        <div class="ui container">
+            <!--如果是null，就新增，否则就调用types之后的id-->
+            <form action="#" method="post"  th:object="${type}" th:action="*{id}==null ? @{/admin/types} : @{/admin/types/{id}(id=*{id})} "  class="ui form">
+                <!--传递ID-->
+                <input type="hidden" name="id" th:value="*{id}">
+                <div class=" field">
+                    <div class="ui left labeled input">
+                        <label class="ui teal basic label">名称</label>
+                        <input type="text" name="name" placeholder="分类名称" th:value="*{name}" >
+                    </div>
+                </div>
+
+                <div class="ui error message"></div>
+                <!--/*/
+                    <div class="ui negative message" th:if="${#fields.hasErrors('name')}"  >
+                      <i class="close icon"></i>
+                      <div class="header">验证失败</div>
+                      <p th:errors="*{name}">提交信息不符合规则</p>
+                    </div>
+                 /*/-->
+                <div class="ui right aligned container">
+                    <button type="button" class="ui button" onclick="window.history.go(-1)" >返回</button>
+                    <button class="ui teal submit button">提交</button>
+                    <!--submit:点击回车键自动提交-->
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!--底部footer-->
+    <!--vertical:垂直,无圆角,m-padded-tb-massive:自定义宽度-->
+    <footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+        <!--center aligned:居中、ui提供的container:提供的宽度固定-->
+        <div class="ui center aligned container">
+            <!--grid:分成16份、divided:分割的线、stackable:可堆叠,屏幕小的时候会堆叠到一块,用于适应移动端网页适配-->
+            <div class="ui inverted divided stackable grid">
+                <div class="three wide column">
+                    <div class="ui inverted link list">
+                        <div class="item">
+                            <!--rounded:圆角的-->
+                            <img src="../../static/images/wechat.png" class="ui rounded image" alt="" style="width: 110px">
+                        </div>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item m-text-thin">用户故事（User Story）</a>
+                        <a href="#" class="item m-text-thin">用户故事（User Story）</a>
+                        <a href="#" class="item m-text-thin">用户故事（User Story）</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item m-text-thin">Email：1349895715@qq.com</a>
+                        <a href="#" class="item m-text-thin">QQ：1349895715</a>
+                        <a href="#" class="item m-text-thin">phone：13219625189</a>
+                    </div>
+                </div>
+                <div class="seven wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced ">Blog</h4>
+                    <p class="m-text-thin m-text-spaced m-opacity-mini">这是我的个人博客、会分享关于编程、写作、思考相关的任何内容，希望可以给来到这儿的人有所帮助...</p>
+                </div>
+            </div>
+            <!--section divider:底部的线-->
+            <div class="ui inverted section divider"></div>
+            <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2021/9 - 2022/4 Blog Designed by haohaoyuan</p>
+        </div>
+
+    </footer>
+
+    <!--通过CDN引入Semantic-UI(也可通过本地下载引入)-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <!--引入md插件JS-->
+    <script src="../../static/lib/editormd/editormd.min.js"></script>
+
+    <script>
+        //<!--jQuery获取这个元素-->
+        $('.menu.toggle').click(function () {//toggleClass开关一样的样式
+            $('.m-item').toggleClass('m-mobile-hide');//m-item:获取那几个列表，点击的时候处理m-mobile-hide
+        });
+        //<!--jQuery:按钮之后触发，执行JS组件-->
+        // $('#payButton').popup({         //获得按钮、.popup:没有为什么，调用组件
+        //     popup : $('.payQR.popup'),  //拿到二维码对象，定位到这个元素
+        //     //on : 'click',               //点击的时候触发
+        //     position: 'bottom center'   //position位置：在中下的位置触发
+        // });
+        $('.ui.dropdown').dropdown({        //鼠标放上去就会出现下拉
+            on : 'hover'                    //默认是点击，hover鼠标放上去就出来
+        });
+
+
+        $('.ui.form').form({            //拿到当前的form表单
+            fields : {                  //foelds区域
+                title : {               //title区域
+                    identifier: 'name',//
+                    rules: [{           //验证规则
+                        type : 'empty', //非空验证
+                        prompt: '请输入分类名称'//提示内容，错误信息
+                    }]
+                }
+            }
+        });
+    </script>
+    <script>
+        //<!--jQuery获取这个元素-->
+        $('.menu.toggle').click(function () {//toggleClass开关一样的样式
+            $('.m-item').toggleClass('m-mobile-hide');//m-item:获取那几个列表，点击的时候处理m-mobile-hide
+        });
+        //<!--jQuery:按钮之后触发，执行JS组件-->
+        // $('#payButton').popup({         //获得按钮、.popup:没有为什么，调用组件
+        //     popup : $('.payQR.popup'),  //拿到二维码对象，定位到这个元素
+        //     //on : 'click',               //点击的时候触发
+        //     position: 'bottom center'   //position位置：在中下的位置触发
+        // });
+        $('.wechat').popup({                //获取wechat，鼠标控制他的时候发生事件
+            popup : $('.wechat-qr'),        //获取wechat-qr，弹出来
+            position: 'bottom center'       //position位置：在中下的位置触发
+        });
+        $('.qq').popup();
+    </script>
+    <!-- 爱心特效 -->
+    <script type="text/javascript">
+        (function (window, document, undefined) {
+            var hearts = [];
+            window.requestAnimationFrame = (function () {
+                return window.requestAnimationFrame ||
+                    window.webkitRequestAnimationFrame ||
+                    window.mozRequestAnimationFrame ||
+                    window.oRequestAnimationFrame ||
+                    window.msRequestAnimationFrame ||
+                    function (callback) {
+                        setTimeout(callback, 1000 / 60);
+                    }
+            })();
+            init();
+
+            function init() {
+                css(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: absolute;}.heart:after{top: -5px;}.heart:before{left: -5px;}");
+                attachEvent();
+                gameloop();
+            }
+
+            function gameloop() {
+                for (var i = 0; i < hearts.length; i++) {
+                    if (hearts[i].alpha <= 0) {
+                        document.body.removeChild(hearts[i].el);
+                        hearts.splice(i, 1);
+                        continue;
+                    }
+                    hearts[i].y--;
+                    hearts[i].scale += 0.004;
+                    hearts[i].alpha -= 0.013;
+                    hearts[i].el.style.cssText = "left:" + hearts[i].x + "px;top:" + hearts[i].y + "px;opacity:" + hearts[i].alpha + ";transform:scale(" + hearts[i].scale + "," + hearts[i].scale + ") rotate(45deg);background:" + hearts[i].color;
+                }
+                requestAnimationFrame(gameloop);
+            }
+
+            function attachEvent() {
+                var old = typeof window.onclick === "function" && window.onclick;
+                window.onclick = function (event) {
+                    old && old();
+                    createHeart(event);
+                }
+            }
+
+            function createHeart(event) {
+                var d = document.createElement("div");
+                d.className = "heart";
+                hearts.push({
+                    el: d,
+                    x: event.clientX - 5,
+                    y: event.clientY - 5,
+                    scale: 1,
+                    alpha: 1,
+                    color: randomColor()
+                });
+                document.body.appendChild(d);
+            }
+
+            function css(css) {
+                var style = document.createElement("style");
+                style.type = "text/css";
+                try {
+                    style.appendChild(document.createTextNode(css));
+                } catch (ex) {
+                    style.styleSheet.cssText = css;
+                }
+                document.getElementsByTagName('head')[0].appendChild(style);
+            }
+
+            function randomColor() {
+                return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + ")";
+            }
+        })(window, document);
+    </script>
+    <!-- 爱心特效 -->
+
+
+    <!-- 鼠标点击特效 -->
+    <body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <script src="https://blog-static.cnblogs.com/files/lq0001/silence.min.js"></script>
+        <!-- <script type="text/javascript">initModel()</script> -->
+        <!-- 鼠标点击特效 -->
+
+        <script src="https://files.cnblogs.com/files/graytido/cursor-effects.js"></script>
+
+        <!-- 鼠标点击特效end -->
+
+        <style>
+            /** 鼠标样式 **/
+            body {
+                cursor: url(https://www.tiezi.xyz/usr/uploads/2017/08/149116970.png), auto;
+            }
+
+            a, a:visited {
+                cursor: url(https://www.tiezi.xyz/usr/uploads/2017/08/1738446070.png), auto;
+            }
+        </style>
+    </div>
+    <!-- 鼠标点击特效 -->
+    <!--雪花-->
+    <script>
+        (function ($) {
+            $.fn.snow = function (options) {
+                var $flake = $('<div />')
+                    .css({
+                        'position': 'fixed',//'absolute',
+                        'top': '-50px',
+                        'z-index': '1000'
+                    })
+                    .html('&#10052;');
+                var documentHeight = document.documentElement.clientHeight;//$(document).height();
+                var documentWidth = $(document).width();
+                var defaults = {minSize: 10, maxSize: 20, newOn: 500, flakeColor: "#FFFFFF"};
+                var options = $.extend({}, defaults, options);
+                var interval = setInterval(function () {
+                    var startPositionLeft = Math.random() * documentWidth - 100;
+                    var startOpacity = 0.5 + Math.random();
+                    var sizeFlake = options.minSize + Math.random() * options.maxSize;
+                    var endPositionTop = documentHeight - 40;
+                    var endPositionLeft = startPositionLeft - 100 + Math.random() * 200;
+                    var durationFall = documentHeight * 10 + Math.random() * 5000;
+                    $flake.clone()
+                        .appendTo('body')
+                        .css({
+                            left: startPositionLeft,
+                            opacity: startOpacity,
+                            'font-size': sizeFlake,
+                            color: options.flakeColor
+                        })
+                        .animate({
+                                top: endPositionTop,
+                                left: endPositionLeft,
+                                opacity: 0.2
+                            },
+                            durationFall,
+                            'linear',
+                            function () {
+                                $(this).remove();
+                            });
+                }, options.newOn);
+            };
+        })(jQuery);
+
+
+        $.fn.snow({minSize: 10, maxSize: 50, newOn: 1000, flakeColor: '#ccc'});
+    </script>
+    <!--雪花-->
+
+
+    <!--线条随鼠标流动-->
+    <script>
+        !function () {
+            function n(n, e, t) {
+                return n.getAttribute(e) || t
+            }
+
+            function e(n) {
+                return document.getElementsByTagName(n)
+            }
+
+            function t() {
+                var t = e("script"), o = t.length, i = t[o - 1];
+                return {
+                    l: o, z: n(i, "zIndex", -1), o: n(i, "opacity", .5), c: n(i, "color", "0,0,0"), n: n(i, "count", 99)
+                }
+            }
+
+            function o() {
+                a = m.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+                    c = m.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+            }
+
+            function i() {
+                r.clearRect(0, 0, a, c);
+                var n, e, t, o, m, l;
+                s.forEach(function (i, x) {
+                    for (i.x += i.xa, i.y += i.ya, i.xa *= i.x > a || i.x < 0 ? -1 : 1, i.ya *= i.y > c || i.y < 0 ? -1 : 1, r.fillRect(i.x - .5, i.y - .5, 1, 1), e = x + 1; e < u.length; e++) n = u[e],
+                    null !== n.x && null !== n.y && (o = i.x - n.x, m = i.y - n.y,
+                        l = o * o + m * m, l < n.max && (n === y && l >= n.max / 2 && (i.x -= .03 * o, i.y -= .03 * m),
+                        t = (n.max - l) / n.max, r.beginPath(), r.lineWidth = t / 2, r.strokeStyle = "rgba(" + d.c + "," + (t + .2) + ")", r.moveTo(i.x, i.y), r.lineTo(n.x, n.y), r.stroke()))
+                }),
+                    x(i)
+            }
+
+            var a, c, u, m = document.createElement("canvas"),
+                d = t(), l = "c_n" + d.l, r = m.getContext("2d"),
+                x = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+                    function (n) {
+                        window.setTimeout(n, 1e3 / 45)
+                    },
+                w = Math.random, y = {x: null, y: null, max: 2e4};
+            m.id = l, m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z + ";opacity:" + d.o, e("body")[0].appendChild(m), o(), window.onresize = o,
+                window.onmousemove = function (n) {
+                    n = n || window.event, y.x = n.clientX, y.y = n.clientY
+                },
+                window.onmouseout = function () {
+                    y.x = null, y.y = null
+                };
+            for (var s = [], f = 0; d.n > f; f++) {
+                var h = w() * a, g = w() * c, v = 2 * w() - 1, p = 2 * w() - 1;
+                s.push({x: h, y: g, xa: v, ya: p, max: 6e3})
+            }
+            u = s.concat([y]),
+                setTimeout(function () {
+                    i()
+                }, 100)
+        }();
+    </script>
+    <!--线条随鼠标流动-->
+
+
+    <!--鼠标点击弹出社会主义核心价值观-->
+    <script type="text/javascript">
+        var a_idx = 0;
+        jQuery(document).ready(function ($) {
+            $("body").click(function (e) {
+                var a = new Array("❤富强❤", "❤民主❤", "❤文明❤", "❤和谐❤", "❤自由❤", "❤平等❤", "❤公正❤", "❤法治❤", "❤爱国❤", "❤敬业❤", "❤诚信❤", "❤友善❤");
+                var $i = $("<span></span>").text(a[a_idx]);
+                a_idx = (a_idx + 1) % a.length;
+                var x = e.pageX,
+                    y = e.pageY;
+                $i.css({
+                    "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+                    "top": y - 20,
+                    "left": x,
+                    "position": "absolute",
+                    "font-weight": "bold",
+                    "color": "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+                });
+                $("body").append($i);
+                $i.animate({
+                        "top": y - 180,
+                        "opacity": 0
+                    },
+                    1500,
+                    function () {
+                        $i.remove();
+                    });
+            });
+        });
+    </script>
+    <!--鼠标点击弹出社会主义核心价值观-->
+    <!-- 雪花 -->
+
+    <script src="https://files.cnblogs.com/files/structmooc/%E9%9B%AA%E8%8A%B1.js"></script>
+    <!-- 雪花 -->
+    </body>
+</body>
+</html>
